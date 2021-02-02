@@ -56,12 +56,12 @@ export default class App extends Component{
 
         const todoData = JSON.parse(localStorage.getItem('todoData'));
 
-        const todoNew = todoData.filter((item) => item.id != id);
-        localStorage.setItem('todoData', JSON.stringify(todoNew));
+        const todoDataNew = todoData.filter((item) => item.id != id);
+        localStorage.setItem('todoData', JSON.stringify(todoDataNew));
         this.setState(({todoData}) => {
             
             return{
-                todoData: todoNew
+                todoData: todoDataNew
             }
         })
     };
