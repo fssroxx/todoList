@@ -1,31 +1,10 @@
-import { Component } from "react";
 import'./tdli.css';
 
-export default class TodoListItem extends Component{
+const TodoListItem = ({ label, onDeleted, onToggleDone, 
+    onToggleImportant, done, important}) => {
     
-        state = {
-            done: false
-        }
-    
-    onLabelClick = () => {
-        this.setState(({done}) => {
-            return {
-                done: !done
-            }
-        })
-    }
-
-    onMarkImportant = () => {
-        this.setState(({important}) => {
-            return {
-                important: !important
-            }
-        })
-    }
-
-    render() {
-        const { label, onDeleted, onToggleDone, onToggleImportant} = this.props;
-        const { done, important } = this.state;
+        
+        
         let classNames;
         if (done) {
             classNames+=' done'
@@ -33,15 +12,12 @@ export default class TodoListItem extends Component{
         if (important) {
             classNames+=' important'
         }
-        // const liStyle = {
-        //     color: important ? 'tomato' : 'black'
-        // };
+       
         
         return(
             <>
             <span 
-                className={classNames}
-                
+                className={ classNames }
                 onClick={ onToggleDone }
             >
                 { label }
@@ -52,6 +28,7 @@ export default class TodoListItem extends Component{
             onClick={ onDeleted }>del</button>
         </>
         )
-    }
+    
 }
 
+export default TodoListItem;
