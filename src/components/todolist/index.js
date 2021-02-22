@@ -1,16 +1,15 @@
 import TodoListItem from '../todolist-item';
+import { connect } from 'react-redux';
 
-const TodoList = ({posts, onDeleted, onToggleDone, onToggleImportant}) => {
+const TodoList = () => {
     // const items = ['Learn JS', 'Learn React'];
-    const elements = posts.map((item) => {
+    const elements = todoItems.map((item) => {
         const {id, ...itemProps} = item;
 
         return(
             <li key={id}> 
                 <TodoListItem {...itemProps} 
-                onDeleted={() => onDeleted(id)}
-                onToggleDone={() => onToggleDone(id)}
-                onToggleImportant={() => onToggleImportant(id)}/>
+                />
             </li> 
         )
     })
@@ -23,4 +22,9 @@ const TodoList = ({posts, onDeleted, onToggleDone, onToggleImportant}) => {
         </>
     )
 }
-export default TodoList;
+
+const mapStateToProps = ({todoItems}) => {
+    return todoItems
+}
+
+export default connect(mapStateToProps)(TodoList);
