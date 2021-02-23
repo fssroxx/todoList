@@ -1,12 +1,15 @@
-import AddItem from '../add-item';
+
 import AppHeader from '../app-header';
 import SearchPanel from '../search-panel';
 import TodoList from '../todolist';
 import ItemStatusFilter from '../item-status-filter';
+import store from '../reduceStore'
 
 import { Provider } from 'react-redux';
 
 const App = () => {
+    
+
     // maxId = 100;
 
     // state = {
@@ -35,6 +38,7 @@ const App = () => {
     // onToggleDone = (id) => {
     //     console.log('d', id)
     // }
+    
     // onItemAdd = (text) => {
     //     const newItem = {
     //         label: text,
@@ -44,12 +48,7 @@ const App = () => {
 
     //     const newArr = [...this.state.todoData, newItem];
 
-    //     this.setState(({ todoData }) => {
-           
-    //         return{
-    //             todoData: newArr
-    //         }
-    //     })
+        
     //     localStorage.setItem('todoData', JSON.stringify(newArr));
     // }
 
@@ -70,12 +69,12 @@ const App = () => {
     
         return(
             <>
-               <Provider store={todoStore}>
+               <Provider store={store}>
                     <AppHeader toDo={3} done={6} />
                     <SearchPanel/>
                     <ItemStatusFilter/>
                     <TodoList/>
-                    <AddItem />
+                    
                 </Provider>
             </>
 

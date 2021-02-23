@@ -2,22 +2,24 @@ import { createStore } from 'redux';
 
 
 const initialState = {
-    todoItems:[
-        {label:'do nothing', id: 1},
-        {label:'do smth', id: 2},
-]
+    todoItems:[]
 }
 
 function todoListReducer (state = initialState, action) {
     switch (action.type) {
         case 'addTodo':
             return {
-                ...state,
-                newTodoListItem
+                ...state, todoItems: [...state.todoItems, action.payload]
             }
         case 'deleteTodo':
             return {
-                ...state
+                ...state, todoItems: state.todoItems.filter((item) => {
+                    return item.id !== action.payload
+                })
+            }
+        case 'initTodo':
+            return {
+                ...state, todoItems: action.payload
             }
         default:
             return state
@@ -26,13 +28,8 @@ function todoListReducer (state = initialState, action) {
 
 let todoStore = createStore(todoListReducer);
 
-const addTodo = () => {
-    todoStore.dispatch(addTodoAction);
-}
+export const addTodoAction = (newItem) =>{return { type: 'addTodo', payload: newItem}} ;
+export const deleteTodoAction = (id) =>  {return { type: 'deleteTodo', payload: id}};
+export const initTodoAction = (newArr) =>  {return { type: 'initTodo', payload: newArr}};
 
-const deleteTodo = () => {
-    todoStore.dispatch(deleteTodoAction);
-}
-
-const addTodoAction = { type: 'addTodo'};
-const deleteTodoAction = { type: 'deleteTodo'};
+export default todoStore;
