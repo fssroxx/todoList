@@ -70,10 +70,13 @@ const App = () => {
         return(
             <>
                <Provider store={store}>
-                    <AppHeader toDo={3} done={6} />
-                    <SearchPanel/>
-                    <ItemStatusFilter/>
-                    <TodoList/>
+                   <div className="app card border-primary mb-3">
+                        <AppHeader toDo={3} done={6} />
+                        <SearchPanel/>
+                        <ItemStatusFilter/>
+                        <TodoList/>
+                   </div>
+                   
                     
                 </Provider>
             </>
