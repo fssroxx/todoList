@@ -1,0 +1,8 @@
+.search-panel input {
+    display: flex;
+    width: 250px;
+    margin-left: 35px;
+    outline: none;
+    padding-left: 10px;
+    
+}

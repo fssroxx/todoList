@@ -1,0 +1,44 @@
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+
+}
+
+.app-header label {
+    display: flex;
+    align-items: flex-end;
+    margin-right: 10px;
+}
+
+span.all_notes {
+    margin-right: 5px;
+}
+
+span.liked_notes {
+    margin-left: 5px;
+}
+
+span.edit_by {
+    display: inline;
+    font-size: 35px;
+    /* padding-top: 150px ; */
+}
+
+.edit_by__block h4 {
+    display: inline;
+    padding-right: 10px;
+    padding-top: 0px;
+}
+
+.edit_by__block h2 {
+    display: block;
+    padding-top: 0px;
+}
+
+.wrapper {
+    margin-top: -20px;
+    margin-left: 20px;
+
+}

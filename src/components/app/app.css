@@ -1,0 +1,18 @@
+.app {
+
+    margin: 25px auto;
+    max-width: 600px;
+
+}
+
+.search {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    
+}
+
+.search__group{
+    display: flex;
+    flex-direction: row;
+}
